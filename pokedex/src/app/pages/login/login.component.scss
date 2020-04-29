@@ -1,0 +1,14 @@
+.login {
+  background-color: #F2F2F2;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+
+  &-wrapper {
+    margin-top: 60px;
+    max-width: 474px;
+    width: 100%;
+  }
+}
