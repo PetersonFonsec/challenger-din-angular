@@ -17,13 +17,23 @@
         <i class="icon-vk"></i>
       </li>
       <li>
-        <span class="icon-google"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+        <i class="icon-google"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
       </li>
     </ul>
   </div>
 
   <div class="form-login-content">
-    <div class="registration"></div>
+    <div class="registration">
+      <app-input-text class="mt-20" type="text" placeholder="Your name"></app-input-text>
+      <app-input-text class="mt-20" type="email" placeholder="E-mail"></app-input-text>
+      <app-input-text class="mt-20" type="tel" placeholder="Phone"></app-input-text>
+      <app-checkbox   class="mt-20" name="privacy" id="privacy">
+        I accept the terms of the offer of
+        <a href="http://" target="_blank" rel="noopener noreferrer">
+          the privacy policy
+        </a>
+      </app-checkbox>
+    </div>
     <div class="sigin"></div>
   </div>
 </form>

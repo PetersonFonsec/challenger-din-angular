@@ -4,7 +4,9 @@ import { LoginComponent } from './login.component';
 import { FormLoginModule } from 'src/app/components/forms/login/formLogin.module';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [
+    LoginComponent,
+  ],
   imports: [
     CommonModule,
     FormLoginModule
