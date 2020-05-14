@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class FormLoginComponent {
   constructor() { }
+  submit(){
+    console.log('submit');
+    alert('submit');
+  }
+  signIn(){
+    console.log('signIn');
+    alert('signIn');
+  }
 }

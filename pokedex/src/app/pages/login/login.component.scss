@@ -5,6 +5,8 @@
   display: flex;
   align-self: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding: 20px;
 
   &-wrapper {
     margin-top: 60px;

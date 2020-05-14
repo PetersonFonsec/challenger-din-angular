@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormLoginComponent} from './formLogin.component'
 import { InputTextModule } from '../../inputs/input-text/input-text.module';
 import { CheckboxModule } from '../../inputs/checkbox/checkbox.module';
+import { ButtonModule } from '../../button/button.module';
 
 @NgModule({
   declarations: [FormLoginComponent],
@@ -10,6 +11,7 @@ import { CheckboxModule } from '../../inputs/checkbox/checkbox.module';
     CommonModule,
     InputTextModule,
     CheckboxModule,
+    ButtonModule,
   ],
   exports:[
     FormLoginComponent

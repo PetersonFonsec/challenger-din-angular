@@ -1,0 +1,31 @@
+.button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+
+  //sizes
+  &.big {
+    height: 44px;
+    width: 100%;
+  }
+
+  //color
+  &.royal {
+    color: #fff;
+    background-color: #6E41E2;
+
+    &-link {
+      color: #6E41E2;
+      background-color: transparent;
+    }
+  }
+}
