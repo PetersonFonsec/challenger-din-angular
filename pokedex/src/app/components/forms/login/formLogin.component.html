@@ -24,21 +24,67 @@
 
   <div class="form-login-content">
     <div class="registration">
-      <form>
-        <app-input-text class="mt-20" type="text" placeholder="Your name"></app-input-text>
-        <app-input-text class="mt-20" type="email" placeholder="E-mail"></app-input-text>
-        <app-input-text class="mt-20" type="tel" placeholder="Phone"></app-input-text>
-        <app-checkbox   class="mt-20" name="privacy" id="privacy">
-          I accept the terms of the offer of
-          <a href="http://" target="_blank" rel="noopener noreferrer">
-            the privacy policy
-          </a>
+      <form
+        (submit)="submit()"
+        novalidate
+        #form="ngForm">
+        <app-input-text
+          [(ngModel)]="user.name"
+          [error]="name.valid && !name.pristine"
+          name="name"
+          #name="ngModel"
+          placeholder="Your name"
+          message="name.error"
+          required
+          class="mt-20"></app-input-text>
+        <app-input-text
+          [(ngModel)]="user.email"
+          [error]="email.valid && !email.pristine"
+          #email="ngModel"
+          name="email"
+          type="email"
+          required
+          placeholder="Email"
+          message="email.error"
+          class="mt-20"></app-input-text>
+        <app-input-text
+          [(ngModel)]="user.password"
+          [error]="password.valid && !user.pristine"
+          #password="ngModel"
+          name="password"
+          type="password"
+          required
+          message="password.error"
+          placeholder="Password"
+          class="mt-20"></app-input-text>
+
+        <app-checkbox
+          class="mt-20"
+          name="agree"
+          required
+          [(ngModel)]="agree">
+          I accept the terms of the offer of the privacy policy
         </app-checkbox>
-        <app-button class="mt-20" color="royal" size="big" type="button" (click)="submit()">Registration</app-button>
-        <app-button color="royal-link" size="big" type="button" (click)="signIn()">Sign in</app-button>
+
+        <app-button
+          type="submit"
+          [disabled]="form.invalid"
+          class="mt-20"
+          color="royal"
+          size="big">
+         Registration
+        </app-button>
+        <app-button
+          type="button"
+          color="royal-link"
+          size="big"
+          type="button"
+          (click)="signIn()">
+          Sign in
+        </app-button>
       </form>
     </div>
-    <div class="sigin">
+    <div class="signIn">
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 <div class="checkbox">
-  <label class="checkbox-label" (for)="id">
-    <input type="checkbox" (name)="name" (id)="id"/>
+  <label class="checkbox-label"
+    [ngClass]="{'checkbox--error': error }" >
+    <input [(ngModel)]="value" type="checkbox" [required]="required"/>
     <span class="checkbox-box"></span>
     <ng-content></ng-content>
   </label>

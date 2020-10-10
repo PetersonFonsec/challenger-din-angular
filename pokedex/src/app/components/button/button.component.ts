@@ -10,6 +10,7 @@ export class ButtonComponent {
   @Input() type: String;
   @Input() size: String;
   @Input() color: String;
+  @Input() disabled: Boolean;
 
   constructor() { }
 }

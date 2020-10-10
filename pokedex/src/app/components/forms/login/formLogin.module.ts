@@ -4,6 +4,7 @@ import { FormLoginComponent} from './formLogin.component'
 import { InputTextModule } from '../../inputs/input-text/input-text.module';
 import { CheckboxModule } from '../../inputs/checkbox/checkbox.module';
 import { ButtonModule } from '../../button/button.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [FormLoginComponent],
@@ -12,6 +13,7 @@ import { ButtonModule } from '../../button/button.module';
     InputTextModule,
     CheckboxModule,
     ButtonModule,
+    FormsModule,
   ],
   exports:[
     FormLoginComponent

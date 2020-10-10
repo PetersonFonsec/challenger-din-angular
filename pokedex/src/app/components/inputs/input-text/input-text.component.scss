@@ -14,4 +14,14 @@
   padding: 16px;
   position: relative;
   width: 100%;
+
+  &--error {
+    background: #F9E3E3;
+    box-shadow: 0px 4px 12px rgba(255, 196, 196, 0.24), 0px 4px 4px rgba(255, 196, 196, 0.04);
+  }
+
+  &--success {
+    background: #CBECD9;
+    box-shadow: 0px 4px 40px rgba(39, 174, 96, 0.24), 0px 4px 4px rgba(39, 174, 96, 0.04);
+  }
 }

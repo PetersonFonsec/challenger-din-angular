@@ -1,1 +1,7 @@
-<input class="input" [type]="type" [placeholder]="placeholder"/>
+<input
+  class="input"
+  autocomplete="noComplete"
+  [(ngModel)]="value"
+  [ngClass]="{'input--error' : error, 'input--success' : success}"
+  [type]="type"
+  [placeholder]="placeholder"/>
