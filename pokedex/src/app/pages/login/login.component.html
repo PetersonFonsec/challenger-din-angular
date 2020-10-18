@@ -4,8 +4,18 @@
       <div class="form-login-wrapper">
         <div class="form-login-header">
           <h1 class="form-login-title">Profile</h1>
-          <button class="active">Registration</button>
-          <button>Sign in</button>
+          <button
+            (click)="form = 'registration'"
+            [ngClass]="{ active: form === 'registration' }"
+          >
+            Registration
+          </button>
+          <button
+            (click)="form = 'login'"
+            [ngClass]="{ active: form === 'login' }"
+          >
+            Sign in
+          </button>
         </div>
       </div>
 
@@ -29,10 +39,30 @@
       </div>
 
       <div class="form-login-content">
-        <div class="registration">
-          <form-login></form-login>
-        </div>
-        <div class="signIn"></div>
+        <app-registration *ngIf="form === 'registration'"></app-registration>
+        <form-login *ngIf="form === 'login'"></form-login>
+
+        <app-button
+          type="button"
+          color="royal-link"
+          size="big"
+          type="button"
+          *ngIf="form === 'registration'"
+          (click)="form = 'login'"
+        >
+          Sign in
+        </app-button>
+
+        <app-button
+          type="button"
+          color="royal-link"
+          size="big"
+          type="button"
+          *ngIf="form === 'login'"
+          (click)="form = 'registration'"
+        >
+          registration
+        </app-button>
       </div>
     </div>
   </div>

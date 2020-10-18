@@ -2,11 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'form-login',
-  templateUrl: './formLogin.component.html',
-  styleUrls: ['./formLogin.component.scss'],
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss'],
 })
-export class FormLoginComponent {
+export class RegistrationComponent {
   @ViewChild('form', { static: false }) form: NgForm;
   user: any;
   agree: Boolean;
@@ -18,5 +18,6 @@ export class FormLoginComponent {
       email: '',
     };
   }
+
   submit() {}
 }

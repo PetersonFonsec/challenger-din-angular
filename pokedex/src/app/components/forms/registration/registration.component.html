@@ -1,5 +1,18 @@
 <form (submit)="submit()" novalidate #form="ngForm">
   <app-input-text
+    [(ngModel)]="user.name"
+    [error]="name.invalid && !name.pristine"
+    [id]="'name'"
+    [name]="'name'"
+    #name="ngModel"
+    type="text"
+    placeholder="Your name"
+    message="name.error"
+    [required]="true"
+    class="mt-20"
+  ></app-input-text>
+
+  <app-input-text
     [(ngModel)]="user.email"
     [error]="email.invalid && !email.pristine"
     #email="ngModel"
@@ -23,6 +36,15 @@
     class="mt-20"
   ></app-input-text>
 
+  <app-checkbox
+    class="mt-20"
+    name="agree"
+    [required]="true"
+    [(ngModel)]="agree"
+  >
+    I accept the terms of the offer of the privacy policy
+  </app-checkbox>
+
   <app-button
     type="submit"
     [disabled]="form.invalid"
@@ -30,6 +52,6 @@
     color="royal"
     size="big"
   >
-    Sign in
+    Registration
   </app-button>
 </form>
