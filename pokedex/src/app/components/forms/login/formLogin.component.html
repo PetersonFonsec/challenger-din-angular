@@ -1,100 +1,66 @@
-<div class="form-login">
-  <div class="form-login-wrapper">
-    <div class="form-login-header">
-      <h1 class="form-login-title">Profile</h1>
-      <button class="active">Registration</button>
-      <button>Sign in</button>
-    </div>
-  </div>
+<form (submit)="submit()" novalidate #form="ngForm">
+  <app-input-text
+    [(ngModel)]="user.name"
+    [error]="name.invalid && !name.pristine"
+    [id]="'name'"
+    [name]="'name'"
+    #name="ngModel"
+    type="text"
+    placeholder="Your name"
+    message="name.error"
+    [required]="true"
+    class="mt-20"
+  ></app-input-text>
 
-  <div class="form-login-socials">
-    You can sign in with social
-    <ul>
-      <li>
-        <i class="icon-facebook"></i>
-      </li>
-      <li>
-        <i class="icon-vk"></i>
-      </li>
-      <li>
-        <i class="icon-google">
-          <span class="path1"></span><span class="path2"></span>
-          <span class="path3"></span><span class="path4"></span>
-          <span class="path5"></span>
-        </i>
-      </li>
-    </ul>
-  </div>
+  <app-input-text
+    [(ngModel)]="user.email"
+    [error]="email.invalid && !email.pristine"
+    #email="ngModel"
+    name="email"
+    type="email"
+    [required]="true"
+    placeholder="Email"
+    message="email.error"
+    class="mt-20"
+  ></app-input-text>
 
-  <div class="form-login-content">
-    <div class="registration">
-      <form (submit)="submit()" novalidate #form="ngForm">
-        <app-input-text
-          [(ngModel)]="user.name"
-          [error]="name.invalid && !name.pristine"
-          [id]="'name'"
-          [name]="'name'"
-          #name="ngModel"
-          type="text"
-          placeholder="Your name"
-          message="name.error"
-          [required]="true"
-          class="mt-20"
-        ></app-input-text>
+  <app-input-text
+    [(ngModel)]="user.password"
+    [error]="password.invalid && !user.pristine"
+    #password="ngModel"
+    name="password"
+    type="password"
+    [required]="true"
+    message="password.error"
+    placeholder="Password"
+    class="mt-20"
+  ></app-input-text>
 
-        <app-input-text
-          [(ngModel)]="user.email"
-          [error]="email.invalid && !email.pristine"
-          #email="ngModel"
-          name="email"
-          type="email"
-          [required]="true"
-          placeholder="Email"
-          message="email.error"
-          class="mt-20"
-        ></app-input-text>
+  <app-checkbox
+    class="mt-20"
+    name="agree"
+    [required]="true"
+    [(ngModel)]="agree"
+  >
+    I accept the terms of the offer of the privacy policy
+  </app-checkbox>
 
-        <app-input-text
-          [(ngModel)]="user.password"
-          [error]="password.invalid && !user.pristine"
-          #password="ngModel"
-          name="password"
-          type="password"
-          [required]="true"
-          message="password.error"
-          placeholder="Password"
-          class="mt-20"
-        ></app-input-text>
-
-        <app-checkbox
-          class="mt-20"
-          name="agree"
-          [required]="true"
-          [(ngModel)]="agree"
-        >
-          I accept the terms of the offer of the privacy policy
-        </app-checkbox>
-
-        <app-button
-          type="submit"
-          [disabled]="form.invalid"
-          class="mt-20"
-          color="royal"
-          size="big"
-        >
-          Registration
-        </app-button>
-        <app-button
-          type="button"
-          color="royal-link"
-          size="big"
-          type="button"
-          (click)="signIn()"
-        >
-          Sign in
-        </app-button>
-      </form>
-    </div>
-    <div class="signIn"></div>
-  </div>
-</div>
+  <app-button
+    type="submit"
+    [disabled]="form.invalid"
+    class="mt-20"
+    color="royal"
+    size="big"
+  >
+    Registration
+  </app-button>
+  <app-button
+    type="button"
+    color="royal-link"
+    size="big"
+    type="button"
+    (click)="signIn()"
+  >
+    Sign in
+  </app-button>
+</form>
