@@ -2,6 +2,10 @@
   class="input"
   autocomplete="noComplete"
   [(ngModel)]="value"
-  [ngClass]="{'input--error' : error, 'input--success' : success}"
-  [type]="type"
-  [placeholder]="placeholder"/>
+  [ngClass]="{ 'input--error': error, 'input--success': success }"
+  [type]="type ? type : 'text'"
+  [name]="name"
+  [id]="name"
+  [required]="required"
+  [placeholder]="placeholder"
+/>
