@@ -1,7 +1,7 @@
 <form (submit)="submit()" novalidate #form="ngForm">
   <app-input-text
     [(ngModel)]="user.email"
-    [error]="email.invalid && !email.pristine"
+    [error]="email.invalid && (!email.pristine || form.submitted)"
     #email="ngModel"
     name="email"
     type="email"
@@ -13,7 +13,7 @@
 
   <app-input-text
     [(ngModel)]="user.password"
-    [error]="password.invalid && !user.pristine"
+    [error]="password.invalid && (!password.pristine || form.submitted)"
     #password="ngModel"
     name="password"
     type="password"

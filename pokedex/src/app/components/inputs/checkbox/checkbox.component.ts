@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -9,39 +9,48 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CheckboxComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
-export class CheckboxComponent implements ControlValueAccessor {
+export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() id: string;
   @Input() name: string;
-  @Input() error: string;
-  @Input() required: string | boolean;
+  @Input() error: boolean | null;
+  @Input() required: boolean;
+  val = false;
 
   constructor() {
+    this.error = false;
   }
 
-  onChange: any = () => {
-  }
+  onChange: any = () => {};
 
-  onTouch: any = () => {
+  onTouch: any = () => {};
+
+  ngOnInit(): void {}
+
+  get value(): boolean {
+    return this.val;
   }
 
   set value(val) {
-    this.onChange(val)
-    this.onTouch(val)
+    if (val !== undefined && val !== null) {
+      this.val = val;
+      this.onChange(val);
+      this.onTouch(val);
+    }
   }
 
-  writeValue(value: any) {
-    this.value = value
+  writeValue(value: any): void {
+    this.value = value;
   }
 
-  registerOnChange(fn: any) {
-    this.onChange = fn
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
   }
 
-  registerOnTouched(fn: any) {
-    this.onTouch = fn
+  registerOnTouched(fn: any): void {
+    this.onTouch = fn;
   }
 }

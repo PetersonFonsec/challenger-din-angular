@@ -15,41 +15,45 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() type: string;
-  @Input() error: boolean;
-  @Input() name: boolean;
-  @Input() id: boolean;
+  @Input() error: boolean | null;
+  @Input() name: string;
+  @Input() id: string;
   @Input() success: boolean;
   @Input() required: boolean;
   @Input() placeholder: string;
   val = '';
 
-  constructor() {}
+  constructor() {
+    this.error = false;
+  }
 
   onChange: any = () => {};
 
   onTouch: any = () => {};
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
-  get value() {
+  get value(): string {
     return this.val;
   }
 
   set value(val) {
-    this.val = val;
-    this.onChange(val);
-    this.onTouch(val);
+    if (val !== undefined && val !== null) {
+      this.val = val;
+      this.onChange(val);
+      this.onTouch(val);
+    }
   }
 
-  writeValue(value: any) {
+  writeValue(value: any): void {
     this.value = value;
   }
 
-  registerOnChange(fn: any) {
+  registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any) {
+  registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
 }

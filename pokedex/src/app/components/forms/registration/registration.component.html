@@ -1,37 +1,34 @@
 <form (submit)="submit()" novalidate #form="ngForm">
   <app-input-text
-    [(ngModel)]="user.name"
-    [error]="name.invalid && !name.pristine"
-    [id]="'name'"
-    [name]="'name'"
     #name="ngModel"
+    [(ngModel)]="user.name"
+    [required]="true"
+    [error]="name.invalid && (!name.pristine || form.submitted)"
+    [id]="'name'"
+    name="name"
     type="text"
     placeholder="Your name"
-    message="name.error"
-    [required]="true"
     class="mt-20"
   ></app-input-text>
 
   <app-input-text
+    [required]="true"
     [(ngModel)]="user.email"
-    [error]="email.invalid && !email.pristine"
+    [error]="email.invalid && (!email.pristine || form.submitted)"
     #email="ngModel"
     name="email"
     type="email"
-    [required]="true"
     placeholder="Email"
-    message="email.error"
     class="mt-20"
   ></app-input-text>
 
   <app-input-text
     [(ngModel)]="user.password"
-    [error]="password.invalid && !user.pristine"
+    [required]="true"
+    [error]="password.invalid && (!password.pristine || form.submitted)"
     #password="ngModel"
     name="password"
     type="password"
-    [required]="true"
-    message="password.error"
     placeholder="Password"
     class="mt-20"
   ></app-input-text>
@@ -47,7 +44,7 @@
 
   <app-button
     type="submit"
-    [disabled]="form.invalid"
+    [disabled]="form.invalid || !agree"
     class="mt-20"
     color="royal"
     size="big"
