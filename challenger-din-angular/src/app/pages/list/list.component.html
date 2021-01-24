@@ -29,8 +29,8 @@
       <li *ngFor="let pokemon of listPokemons">
         <app-card-info
           [name]="pokemon?.name"
-          [abilities]="pokemon?.abilities.length"
-          [moves]="pokemon?.moves.length"
+          [abilities]="pokemon?.abilities"
+          [moves]="pokemon?.moves"
           [thumb]="pokemon?.thumb"
         ></app-card-info>
       </li>

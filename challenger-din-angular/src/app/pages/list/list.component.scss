@@ -1,6 +1,9 @@
 .list {
   &_wrapper {
     padding: 50px 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   &_title {
@@ -20,7 +23,7 @@
   &_form {
     display: flex;
     flex-direction: column;
-    margin-top: 32px;
+    margin: 32px 0;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -29,16 +32,41 @@
 
   &_input {
     margin-bottom: 24px;
+    flex: 1;
+
     @media (min-width: 768px) {
-      flex: 0 0 90%;
       margin-bottom: 0;
       margin-right: 24px;
     }
   }
 
   &_button {
+    flex: 1;
     @media (min-width: 768px) {
-      flex: 0 0 10%;
+      max-width: 200px;
+    }
+  }
+
+  &_list {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (min-width: 768px) {
+      margin: 0 -24px;
+    }
+
+    li {
+      width: 100%;
+      margin-bottom: 24px;
+
+      @media (min-width: 768px) {
+        padding: 0 12px;
+        width: 50%;
+      }
+
+      @media (min-width: 1240px) {
+        width: 33%;
+      }
     }
   }
 

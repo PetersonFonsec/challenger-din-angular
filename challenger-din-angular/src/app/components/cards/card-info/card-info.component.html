@@ -1,0 +1,25 @@
+<article class="card-info">
+  <div class="card-info_wrapper">
+    <img class="card-info_image" [src]="thumb" [alt]="name" />
+    <h3 class="card-info_title">{{ name }}</h3>
+    <ul class="card-info_info">
+      <li>
+        <i class="icon-pencil"></i>
+        {{ abilities }} Habilidades
+      </li>
+      <li>
+        <i class="icon-university"></i>
+        {{ moves }}
+        movimentos
+      </li>
+    </ul>
+    <app-button
+      color="royal-outline"
+      size="md"
+      type="button"
+      (click)="showAbilities()"
+    >
+      Habilidades
+    </app-button>
+  </div>
+</article>
