@@ -51,8 +51,9 @@
     display: flex;
     flex-wrap: wrap;
 
-    @media (min-width: 768px) {
-      margin: 0 -24px;
+    @media (min-width: 1240px) {
+      margin-left: -12px;
+      margin-right: -26px;
     }
 
     li {

@@ -11,6 +11,7 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+  transition: 0.2s ease-in-out all;
 
   &:disabled {
     opacity: 0.5;
@@ -39,6 +40,10 @@
 
     &-outline {
       border: 1px solid #6e41e2;
+    }
+    &-outline:hover {
+      color: #fff;
+      background-color: #6e41e2;
     }
   }
 }
