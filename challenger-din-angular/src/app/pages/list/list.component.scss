@@ -30,7 +30,7 @@
   &_input {
     margin-bottom: 24px;
     @media (min-width: 768px) {
-      flex: 0 0 70%;
+      flex: 0 0 90%;
       margin-bottom: 0;
       margin-right: 24px;
     }
@@ -38,7 +38,7 @@
 
   &_button {
     @media (min-width: 768px) {
-      flex: 0 0 30%;
+      flex: 0 0 10%;
     }
   }
 

@@ -24,5 +24,18 @@
         Pesquisar
       </app-button>
     </form>
+
+    <ul class="list_list" *ngIf="!error; else errorFeedback">
+      <li *ngFor="let pokemon of listPokemons">
+        <app-card-info
+          [name]="pokemon?.name"
+          [abilities]="pokemon?.abilities.length"
+          [moves]="pokemon?.moves.length"
+          [thumb]="pokemon?.thumb"
+        ></app-card-info>
+      </li>
+    </ul>
+
+    <ng-template #errorFeedback> Pokemon não encontrado </ng-template>
   </div>
 </section>
