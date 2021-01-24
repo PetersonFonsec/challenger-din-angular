@@ -3,7 +3,8 @@
   border: none;
   border-radius: 4px;
   box-sizing: border-box;
-  box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+  box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08),
+    0px 4px 4px rgba(51, 51, 51, 0.04);
   color: rgba(17, 17, 17, 0.48);
   display: block;
   font-family: Roboto;
@@ -16,12 +17,35 @@
   width: 100%;
 
   &--error {
-    background: #F9E3E3;
-    box-shadow: 0px 4px 12px rgba(255, 196, 196, 0.24), 0px 4px 4px rgba(255, 196, 196, 0.04);
+    background: #f9e3e3;
+    box-shadow: 0px 4px 12px rgba(255, 196, 196, 0.24),
+      0px 4px 4px rgba(255, 196, 196, 0.04);
   }
 
   &--success {
-    background: #CBECD9;
-    box-shadow: 0px 4px 40px rgba(39, 174, 96, 0.24), 0px 4px 4px rgba(39, 174, 96, 0.04);
+    background: #cbecd9;
+    box-shadow: 0px 4px 40px rgba(39, 174, 96, 0.24),
+      0px 4px 4px rgba(39, 174, 96, 0.04);
+  }
+
+  &-wrapper {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+
+  &-icon {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    left: 16px;
+    color: rgba(17, 17, 17, 0.48);
+    font-size: 20px;
+
+    & + input {
+      padding-left: 42px;
+    }
   }
 }

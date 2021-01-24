@@ -1,11 +1,14 @@
-<input
-  class="input"
-  autocomplete="noComplete"
-  [(ngModel)]="value"
-  [ngClass]="{ 'input--error': error, 'input--success': success }"
-  [type]="type ? type : 'text'"
-  [name]="name"
-  [id]="name"
-  [required]="required"
-  [placeholder]="placeholder"
-/>
+<div class="input-wrapper">
+  <i class="input-icon" *ngIf="icon" [class]="icon"></i>
+  <input
+    class="input"
+    autocomplete="noComplete"
+    [(ngModel)]="value"
+    [ngClass]="{ 'input--error': error, 'input--success': success }"
+    [type]="type ? type : 'text'"
+    [name]="name"
+    [id]="name"
+    [required]="required"
+    [placeholder]="placeholder"
+  />
+</div>

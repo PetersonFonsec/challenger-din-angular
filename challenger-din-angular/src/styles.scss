@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import './scss/base/variables.scss';
-@import './scss/base/fonts.scss';
-@import './scss/base/reset.scss';
+@import "./scss/base/variables.scss";
+@import "./scss/base/fonts.scss";
+@import "./scss/base/reset.scss";
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

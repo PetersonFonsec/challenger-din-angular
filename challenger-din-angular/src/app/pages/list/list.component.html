@@ -1,11 +1,28 @@
 <app-header></app-header>
-<div class="list">
-  <div class="list-wrapper">
-    <h1 class="list-title">Pokemons</h1>
-    <p class="list-description">
+<section class="list">
+  <div class="list_wrapper">
+    <h1 class="list_title">Pokemons</h1>
+    <p class="list_description">
       Each course contains video lectures, tasks, and text materials. All
       courses viewed by you are displayed in your personal account
     </p>
-    
+
+    <form class="list_form" #form="ngForm" novalidate (submit)="submit()">
+      <app-input-text
+        [(ngModel)]="pokemonName"
+        #name="ngModel"
+        name="name"
+        type="name"
+        icon="icon-search"
+        [required]="true"
+        placeholder="Buscar pelo nome do pokemon"
+        class="list_input"
+      >
+      </app-input-text>
+
+      <app-button class="list_button" type="submit" color="royal" size="big">
+        Pesquisar
+      </app-button>
+    </form>
   </div>
-</div>
+</section>

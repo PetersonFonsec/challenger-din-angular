@@ -21,6 +21,7 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Input() success: boolean;
   @Input() required: boolean;
   @Input() placeholder: string;
+  @Input() icon: string | null;
   val = '';
 
   constructor() {

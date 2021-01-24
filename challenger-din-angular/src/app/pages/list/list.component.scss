@@ -1,0 +1,50 @@
+.list {
+  &_wrapper {
+    padding: 50px 40px;
+  }
+
+  &_title {
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 48px;
+    margin-bottom: 12px;
+  }
+
+  &_description {
+    color: #000000;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &_input {
+    margin-bottom: 24px;
+    @media (min-width: 768px) {
+      flex: 0 0 70%;
+      margin-bottom: 0;
+      margin-right: 24px;
+    }
+  }
+
+  &_button {
+    @media (min-width: 768px) {
+      flex: 0 0 30%;
+    }
+  }
+
+  ::ng-deep .button.big {
+    @media (min-width: 768px) {
+      height: 100%;
+    }
+  }
+}
