@@ -1,5 +1,7 @@
 .header {
   &-logo {
+    display: flex;
+    align-items: center;
     color: #000;
     font-size: 24px;
     font-style: normal;
@@ -47,13 +49,16 @@
 
   &-avatar {
     align-items: center;
-    display: flex;
+    display: none;
     padding: 22px 24px;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
 
     &-name {
       color: #6e41e2;
       display: flex;
-      // font-family: Roboto;
       font-style: normal;
       font-weight: normal;
       font-size: 16px;
