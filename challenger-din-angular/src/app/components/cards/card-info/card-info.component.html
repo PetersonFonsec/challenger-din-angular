@@ -1,6 +1,11 @@
 <article class="card-info">
   <div class="card-info_wrapper">
-    <img class="card-info_image" [src]="thumb" [alt]="name" />
+    <img
+      class="card-info_image"
+      appLazyLoadingImage
+      [src]="thumb"
+      [alt]="name"
+    />
     <h3 class="card-info_title">{{ name }}</h3>
     <ul class="card-info_info">
       <li>
