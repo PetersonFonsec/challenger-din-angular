@@ -26,6 +26,11 @@
   &.md {
     padding: 12px 20px;
   }
+  &.sm {
+    min-height: 44px;
+    padding: 12px;
+    min-width: 44px;
+  }
 
   //color
   &.royal {
