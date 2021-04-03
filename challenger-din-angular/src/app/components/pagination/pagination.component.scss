@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+  max-width: 100%;
+  flex-wrap: wrap;
+
+  li:not(:last-child) {
+    margin-right: 14px;
+  }
+
+  li:not(:last-child):not(:first-child):not(.show) {
+    display: none;
+  }
+
+  .active ::ng-deep .button {
+    background-color: #6e41e2 !important;
+    color: #fff !important;
+  }
+}
