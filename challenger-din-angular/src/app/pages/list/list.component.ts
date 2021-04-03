@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
+import { Observable } from 'rxjs';
+import {
+  PokemonService,
+  IPokemon,
+} from 'src/app/services/pokemon/pokemon.service';
 
 @Component({
   selector: 'app-list',
@@ -7,54 +11,39 @@ import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  pokemonName: string;
-  listPokemons: any[] = [];
-  currentPage: 0;
-  error: boolean;
+  listPokemons$: Observable<IPokemon[]> = this.pokemon.list();
+  pokemonName = '';
+  currentPage = 0;
+  allPages = 0;
+  limit = 9;
+  error = false;
 
   constructor(private pokemon: PokemonService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  getPokemons(): void {
+    this.listPokemons$ = this.pokemon.list(this.currentPage, this.limit);
+  }
+
+  getPokemonByName(): void {
+    this.listPokemons$ = this.pokemon.getByName(this.pokemonName);
+    this.pokemonName = '';
+  }
+
+  prev(): void {
+    this.currentPage =
+      this.currentPage - this.limit <= 0 ? 0 : this.currentPage - this.limit;
     this.getPokemons();
   }
 
-  submit(): void {
-    if (this.pokemonName) {
-      this.pokemon.get(this.pokemonName).subscribe(
-        (reponse) => {
-          this.listPokemons = [];
-          this.listPokemons.push(this.formatedResponse(reponse));
-          this.error = false;
-        },
-        (erro) => {
-          this.error = true;
-        }
-      );
-    } else {
-      this.getPokemons();
-    }
+  next(): void {
+    this.currentPage += this.limit;
+    this.getPokemons();
   }
 
-  getPokemons(): void {
-    this.pokemon
-      .list(this.currentPage)
-      .subscribe(({ results: pokemons }: any) => {
-        pokemons.forEach((pokemon) => {
-          this.listPokemons = [];
-          this.error = false;
-          this.pokemon.get(pokemon.name).subscribe((reponse) => {
-            this.listPokemons.push(this.formatedResponse(reponse));
-          });
-        });
-      });
-  }
-
-  formatedResponse(reponse) {
-    return {
-      name: reponse.name,
-      abilities: reponse.abilities.length,
-      moves: reponse.moves.length,
-      thumb: reponse.sprites.other['official-artwork'].front_default,
-    };
+  goToPage(page): void {
+    this.currentPage = page * this.limit;
+    this.getPokemons();
   }
 }

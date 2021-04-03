@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'src/app/components/inputs/input-text/input-text.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { CardInfoModule } from 'src/app/components/cards/card-info/card-info.module';
+import { PaginationModule } from 'src/app/components/pagination/pagination.module';
 
 @NgModule({
   declarations: [ListComponent],
@@ -18,6 +19,7 @@ import { CardInfoModule } from 'src/app/components/cards/card-info/card-info.mod
     InputTextModule,
     ButtonModule,
     CardInfoModule,
+    PaginationModule,
   ],
 })
 export class ListModule {}

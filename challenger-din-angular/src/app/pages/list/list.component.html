@@ -7,7 +7,12 @@
       courses viewed by you are displayed in your personal account
     </p>
 
-    <form class="list_form" #form="ngForm" novalidate (submit)="submit()">
+    <form
+      class="list_form"
+      #form="ngForm"
+      novalidate
+      (submit)="getPokemonByName()"
+    >
       <app-input-text
         [(ngModel)]="pokemonName"
         #name="ngModel"
@@ -20,22 +25,43 @@
       >
       </app-input-text>
 
-      <app-button class="list_button" type="submit" color="royal" size="big">
+      <app-button
+        class="list_button"
+        [disabled]="form.invalid"
+        type="submit"
+        color="royal"
+        size="big"
+      >
         Pesquisar
       </app-button>
     </form>
 
-    <ul class="list_list" *ngIf="!error; else errorFeedback">
-      <li *ngFor="let pokemon of listPokemons">
-        <app-card-info
-          [name]="pokemon?.name"
-          [abilities]="pokemon?.abilities"
-          [moves]="pokemon?.moves"
-          [thumb]="pokemon?.thumb"
-        ></app-card-info>
-      </li>
-    </ul>
+    <div *ngIf="!error; else errorFeedback">
+      <ul class="list_list">
+        <li *ngFor="let pokemon of listPokemons$ | async">
+          <app-card-info
+            [name]="pokemon?.name"
+            [abilities]="pokemon?.abilities"
+            [moves]="pokemon?.moves"
+            [thumb]="pokemon?.thumb"
+          ></app-card-info>
+        </li>
+      </ul>
+    </div>
 
-    <ng-template #errorFeedback> Pokemon não encontrado </ng-template>
+    <ng-template #errorFeedback>
+      <h2 class="errorFeedback">Pokemon não encontrado</h2>
+    </ng-template>
+
+    <footer class="list_footer">
+      <app-pagination
+        (prev)="prev()"
+        (next)="next()"
+        (goToPage)="goToPage($event)"
+        [allPages]="allPages"
+        [currentPage]="currentPage / 9"
+      >
+      </app-pagination>
+    </footer>
   </div>
 </section>
