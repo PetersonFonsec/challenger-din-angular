@@ -12,7 +12,6 @@ import {
 })
 export class ListComponent implements OnInit {
   listPokemons$: Observable<IPokemon[]> = this.pokemon.list();
-  pokemonName = '';
   currentPage = 0;
   allPages = 0;
   limit = 9;
@@ -26,9 +25,10 @@ export class ListComponent implements OnInit {
     this.listPokemons$ = this.pokemon.list(this.currentPage, this.limit);
   }
 
-  getPokemonByName(): void {
-    this.listPokemons$ = this.pokemon.getByName(this.pokemonName);
-    this.pokemonName = '';
+  getPokemonByName(name: string): void {
+    if (typeof name === 'string') {
+      this.listPokemons$ = this.pokemon.getByName(name);
+    }
   }
 
   prev(): void {

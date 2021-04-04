@@ -33,6 +33,9 @@
     li {
       align-items: center;
       display: flex;
+      max-width: 100%;
+      overflow: hidden;
+      width: 100%;
     }
 
     li:not(:last-child) {

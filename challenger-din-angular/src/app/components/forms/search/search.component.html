@@ -1,0 +1,23 @@
+<form class="form" #form="ngForm" novalidate (ngSubmit)="_submit()">
+  <app-input-text
+    [(ngModel)]="search"
+    #name="ngModel"
+    name="name"
+    type="name"
+    icon="icon-search"
+    [required]="true"
+    placeholder="Buscar pelo nome do pokemon"
+    class="form_input"
+  >
+  </app-input-text>
+
+  <app-button
+    class="form_button"
+    [disabled]="form.invalid"
+    type="submit"
+    color="royal"
+    size="big"
+  >
+    Pesquisar
+  </app-button>
+</form>

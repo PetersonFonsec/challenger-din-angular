@@ -1,0 +1,23 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: 1240px) {
+    margin-left: -12px;
+    margin-right: -26px;
+  }
+
+  ::ng-deep li {
+    width: 100%;
+    margin-bottom: 24px;
+
+    @media (min-width: 768px) {
+      padding: 0 12px;
+      width: 50%;
+    }
+
+    @media (min-width: 1240px) {
+      width: 33%;
+    }
+  }
+}

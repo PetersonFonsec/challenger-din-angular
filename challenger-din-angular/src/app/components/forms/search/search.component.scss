@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  &_input {
+    margin-bottom: 24px;
+    flex: 1;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 24px;
+    }
+  }
+
+  &_button {
+    flex: 1;
+    @media (min-width: 768px) {
+      max-width: 200px;
+    }
+  }
+
+  ::ng-deep .button.big {
+    @media (min-width: 768px) {
+      height: 100%;
+    }
+  }
+}
