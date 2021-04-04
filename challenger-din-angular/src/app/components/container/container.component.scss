@@ -1,8 +1,9 @@
 .container {
   &_wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
+    min-height: calc(100vh - 88px);
     padding: 50px 40px;
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
   }
 }

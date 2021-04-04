@@ -1,1 +1,16 @@
-<p>single works!</p>
+<app-header></app-header>
+
+<app-container>
+  <app-title>{{ pokemon$?.name }}</app-title>
+  <app-description>
+    Each course contains video lectures, tasks, and text materials. All courses
+    viewed by you are displayed in your personal account
+  </app-description>
+
+  <app-card-info
+    [name]="pokemon$?.name"
+    [abilities]="pokemon$?.abilities"
+    [moves]="pokemon$?.moves"
+    [thumb]="pokemon$?.thumb"
+  ></app-card-info>
+</app-container>

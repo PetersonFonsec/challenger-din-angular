@@ -11,12 +11,14 @@
 
   <app-simple-list *ngIf="!error; else errorFeedback">
     <li *ngFor="let pokemon of listPokemons$ | async">
-      <app-card-info
-        [name]="pokemon?.name"
-        [abilities]="pokemon?.abilities"
-        [moves]="pokemon?.moves"
-        [thumb]="pokemon?.thumb"
-      ></app-card-info>
+      <a [routerLink]="['/pokemon', pokemon?.name]">
+        <app-card-info
+          [name]="pokemon?.name"
+          [abilities]="pokemon?.abilities"
+          [moves]="pokemon?.moves"
+          [thumb]="pokemon?.thumb"
+        ></app-card-info>
+      </a>
     </li>
   </app-simple-list>
 

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {
+  IPokemon,
+  PokemonService,
+} from 'src/app/services/pokemon/pokemon.service';
 
 @Component({
   selector: 'app-single',
@@ -9,12 +13,18 @@ import { Subscription } from 'rxjs';
 })
 export class SingleComponent implements OnInit {
   subscription: Subscription;
-  name = '';
-  constructor(private router: ActivatedRoute) {}
+  pokemon$: IPokemon;
+
+  constructor(
+    private router: ActivatedRoute,
+    private pokemonService: PokemonService
+  ) {}
 
   ngOnInit(): void {
-    this.subscription = this.router.params.subscribe((a) => {
-      console.log(a);
+    this.subscription = this.router.params.subscribe(({ name }) => {
+      this.pokemonService
+        .getByName(name)
+        .subscribe((pokemon) => (this.pokemon$ = pokemon[0]));
     });
   }
 
