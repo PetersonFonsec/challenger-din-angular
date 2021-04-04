@@ -10,11 +10,11 @@
   <app-search (submit)="getPokemonByName($event)"></app-search>
 
   <app-simple-list *ngIf="!error; else errorFeedback">
-    <li *ngFor="let pokemon of listPokemons$ | async">
+    <li *ngFor="let pokemon of listPokemons$ | async; let i = index">
       <a [routerLink]="['/pokemon', pokemon?.name]">
         <app-card-info
           [name]="pokemon?.name"
-          [abilities]="pokemon?.abilities"
+          [abilities]="pokemon?.abilities.length"
           [moves]="pokemon?.moves"
           [thumb]="pokemon?.thumb"
         ></app-card-info>

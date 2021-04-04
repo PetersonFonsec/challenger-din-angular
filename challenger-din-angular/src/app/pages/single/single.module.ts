@@ -7,6 +7,8 @@ import { ContainerModule } from 'src/app/components/container/container.module';
 import { TitleModule } from 'src/app/components/title/title.module';
 import { DescriptionModule } from 'src/app/components/description/description.module';
 import { CardInfoModule } from 'src/app/components/cards/card-info/card-info.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalSkillsModule } from 'src/app/components/modals/modal-skills/modal-skills.module';
 
 @NgModule({
   declarations: [SingleComponent],
@@ -18,6 +20,8 @@ import { CardInfoModule } from 'src/app/components/cards/card-info/card-info.mod
     TitleModule,
     DescriptionModule,
     CardInfoModule,
+    MatDialogModule,
+    ModalSkillsModule,
   ],
   exports: [SingleComponent],
 })

@@ -1,0 +1,13 @@
+<div class="modal-skills">
+  <div class="modal-skills_wrapper">
+    <app-title> Habilidades do {{ name }} </app-title>
+
+    <ul>
+      <li *ngFor="let skill of skills">
+        <app-button size="md" color="royal">
+          {{ skill }}
+        </app-button>
+      </li>
+    </ul>
+  </div>
+</div>

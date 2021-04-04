@@ -1,0 +1,28 @@
+.modal-skills {
+  background-color: #fff;
+
+  ul {
+    align-items: stretch;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  li {
+    flex: 1;
+
+    &:not(:last-child) {
+      margin-right: 24px;
+    }
+  }
+
+  app-button {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  ::ng-deep .button {
+    height: 100%;
+    width: 100%;
+  }
+}

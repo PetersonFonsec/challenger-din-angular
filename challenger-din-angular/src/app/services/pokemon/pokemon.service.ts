@@ -6,8 +6,17 @@ import { environment } from 'src/environments/environment';
 
 interface IPayLoadApi {
   name: string;
-  abilities: [];
   moves: [];
+  abilities: [
+    {
+      ability: {
+        name: string;
+        url: string;
+      };
+      is_hidden: false;
+      slot: 1;
+    }
+  ];
   sprites: {
     other: {
       'official-artwork': {
@@ -18,7 +27,7 @@ interface IPayLoadApi {
 }
 export interface IPokemon {
   name: string;
-  abilities: number;
+  abilities: any[];
   moves: number;
   thumb: string;
 }
@@ -34,7 +43,7 @@ export class PokemonService {
   private transformPayload(payload: IPayLoadApi): IPokemon {
     return {
       name: payload.name,
-      abilities: payload.abilities.length,
+      abilities: payload.abilities,
       moves: payload.moves.length,
       thumb: payload.sprites.other['official-artwork'].front_default,
     };

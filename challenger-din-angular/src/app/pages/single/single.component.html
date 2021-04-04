@@ -8,8 +8,9 @@
   </app-description>
 
   <app-card-info
+    (click)="openDialog()"
     [name]="pokemon$?.name"
-    [abilities]="pokemon$?.abilities"
+    [abilities]="pokemon$?.abilities.length"
     [moves]="pokemon$?.moves"
     [thumb]="pokemon$?.thumb"
   ></app-card-info>
