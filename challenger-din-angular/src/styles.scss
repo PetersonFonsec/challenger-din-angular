@@ -2,6 +2,8 @@
 @import "./scss/base/fonts.scss";
 @import "./scss/base/reset.scss";
 
+@import "./scss/module/alert";
+
 #app {
   display: flex;
   flex-direction: column;

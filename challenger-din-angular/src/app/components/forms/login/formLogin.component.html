@@ -1,4 +1,4 @@
-<form (submit)="submit()" novalidate #form="ngForm">
+<form (ngSubmit)="_submit()" novalidate #form="ngForm">
   <app-input-text
     [(ngModel)]="user.email"
     [error]="email.invalid && (!email.pristine || form.submitted)"
@@ -9,6 +9,7 @@
     placeholder="Email"
     message="email.error"
     class="mt-20"
+    email
   ></app-input-text>
 
   <app-input-text

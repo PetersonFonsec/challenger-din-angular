@@ -1,7 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
 
-class LoginData {
+export class LoginData {
   constructor(public email?: string, public password?: string) {}
 }
 @Component({
@@ -10,10 +9,13 @@ class LoginData {
   styleUrls: ['./formLogin.component.scss'],
 })
 export class FormLoginComponent {
-  @ViewChild('form', { static: false }) form: NgForm;
-  user: LoginData = {};
-  agree: Boolean;
+  @Output() submit: EventEmitter<LoginData> = new EventEmitter();
+  user = new LoginData();
+  agree = false;
 
   constructor() {}
-  submit() {}
+
+  _submit() {
+    this.submit.emit(this.user);
+  }
 }

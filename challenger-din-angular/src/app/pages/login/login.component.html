@@ -39,8 +39,15 @@
       </div>
 
       <div class="form-login-content">
-        <app-registration *ngIf="form === 'registration'"></app-registration>
-        <form-login *ngIf="form === 'login'"></form-login>
+        <p class="dd-m-alert dd-m-alert-error" *ngIf="error">{{ error }}</p>
+        <app-registration
+          (submit)="registration($event)"
+          *ngIf="form === 'registration'"
+        ></app-registration>
+        <form-login
+          (submit)="login($event)"
+          *ngIf="form === 'login'"
+        ></form-login>
 
         <app-button
           type="button"

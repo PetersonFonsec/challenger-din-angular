@@ -1,0 +1,15 @@
+.dd-m-alert {
+  border-radius: 4px;
+  color: #fff;
+  margin-bottom: 24px;
+  padding: 8px;
+  width: 100%;
+
+  &-error {
+    background-color: #b00;
+  }
+
+  &-success {
+    background-color: #0b0;
+  }
+}
